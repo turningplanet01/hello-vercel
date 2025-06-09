@@ -1,4 +1,22 @@
-^<h1^>Hello
-World
-from
-Vercel!^</h1^>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello Vercel</title>
+  </head>
+  <body>
+    <h1>Hello World from Vercel!</h1>
+    <div id="api-result"></div>
+    <script>
+      // 用 fetch 调用后端 API
+      fetch('https://hello-railway-production-0ab6.up.railway.app/api/hello')
+        .then(response => response.json())
+        .then(data => {
+          // 显示 API 返回内容
+          document.getElementById('api-result').innerText = data.message;
+        })
+        .catch(error => {
+          document.getElementById('api-result').innerText = '请求失败: ' + error;
+        });
+    </script>
+  </body>
+</html>
